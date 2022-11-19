@@ -4,7 +4,7 @@ from sklearn.neighbors import KNeighborsClassifier
 import TEST
 import scipy
 
-#读取数据集
+#read dataset
 database_feature_list = TEST.excel_read("./database_feature_v5_test.xls")
 x = []
 y = []
@@ -39,14 +39,14 @@ for line in database_feature_list:
 
 k_range = range(1, 31)
 k_error = []
-#循环，取k=1到k=31，查看误差效果
+#test k=1 to 31
 for k in k_range:
     knn = KNeighborsClassifier(n_neighbors=k)
-    #cv参数决定数据集划分比例，这里是按照5:1划分训练集和测试集
+    # 5:1 seperate
     scores = cross_val_score(knn, x, y, cv=5, scoring='accuracy')
     k_error.append(1 - scores.mean())
 
-#画图，x轴为k值，y值为误差值
+#figure draw
 plt.plot(k_range, k_error)
 plt.xlabel('Value of K for KNN')
 plt.ylabel('Error')
