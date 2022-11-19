@@ -22,3 +22,5 @@ User Guide:
 3. click "search"
 4. 5 results are listed with distance representing the similarity (low distance indicates high similarity)
 5. click "show" to view every single mesh
+
+PS: The folder LabeledDB_select_1 is for easily testing, users can choose off files from it.
